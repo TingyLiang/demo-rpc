@@ -14,7 +14,7 @@ public class Provider {
         ApplicationConfig application = new ApplicationConfig();
         application.setName("my-rpc");
 
-        // Registry Info, 这里需要设置zk的地址
+        // Registry Info, 这里需要设置zk的地址 由于没有zk，此处不能正常运行
         RegistryConfig registry = new RegistryConfig();
         registry.setAddress("localhost:9090");
         registry.setUsername("aaa");
