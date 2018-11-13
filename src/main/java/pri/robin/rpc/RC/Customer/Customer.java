@@ -13,9 +13,9 @@ public class Customer {
 
         // Registry Info
         RegistryConfig registry = new RegistryConfig();
-        registry.setAddress("localhost:9090");
-        registry.setUsername("aaa");
-        registry.setPassword("bbb");
+        registry.setAddress("172.17.171.104:2181");
+//        registry.setUsername("aaa");
+//        registry.setPassword("bbb");
 
         // NOTES: ReferenceConfig holds the connections to registry and providers, please cache it for performance.
         // Refer remote service
@@ -26,10 +26,11 @@ public class Customer {
         reference.setInterface(Service.class);
         reference.setVersion("1.0.0");
         // 这里是绕过注册的方式
-        reference.setUrl("dubbo://10.20.130.230:9090/pri.robin.rpc.RC.provider.Service");
+//        reference.setUrl("dubbo://10.20.130.230:9090/pri.robin.rpc.RC.provider.Service");
 
         // Use xxxService just like a local bean
         // NOTES: Please cache this proxy instance.
         Service myService = reference.get();
+        myService.onReceive("hello server.");
     }
 }

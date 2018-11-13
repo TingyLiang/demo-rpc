@@ -16,9 +16,10 @@ public class Provider {
 
         // Registry Info, 这里需要设置zk的地址 由于没有zk，此处不能正常运行
         RegistryConfig registry = new RegistryConfig();
-        registry.setAddress("localhost:9090");
-        registry.setUsername("aaa");
-        registry.setPassword("bbb");
+        registry.setAddress("172.17.171.104:2181");
+//        registry.setUsername("aaa");
+//        registry.setPassword("bbb");
+        registry.setTimeout(1000);
 
         // Protocol
         ProtocolConfig protocol = new ProtocolConfig();
@@ -27,7 +28,6 @@ public class Provider {
         protocol.setThreads(200);
 
         // NOTES: ServiceConfig holds the serversocket instance and keeps connections to registry, please cache it for performance.
-
         // Exporting
         // In case of memory leak, please cache.
         ServiceConfig<Service> services = new ServiceConfig<Service>();
